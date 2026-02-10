@@ -1,10 +1,18 @@
-import { Params } from "next/dist/server/request/params"
+import CategoryProducts from "@/components/CategoryProducts/CategoryProducts";
 
-async function CategoryDetails({params}: {params: Params}) {
+interface CategoryDetailsProps {
+  params: {
+    categoryId: string
+  }
+}
+
+async function CategoryDetails({params}: CategoryDetailsProps) {
   const {categoryId} = await params;
 
   return (
-    <div>CategoryDetails</div>
+    <>
+    <CategoryProducts categoryId={categoryId}/>
+    </>
   )
 }
 
